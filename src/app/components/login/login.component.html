@@ -1,0 +1,28 @@
+<h2>Login Form</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="formSubmit()" method="post">
+  <div class="imgcontainer">
+    <img src="assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" id="uname" [formControlName]="'username'">
+    <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+      User name required.
+    </div>
+    <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+      User name not valid.
+    </div>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" [formControlName]="'password'">
+    <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+      Password required.
+    </div>  
+    <div *ngIf="loginForm.get('password')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+      Password not valid.
+    </div>
+        
+    <button [disabled] = "loginForm.invalid">Login</button>
+  </div>
