@@ -7,7 +7,7 @@
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" id="uname" [formControlName]="'username'">
+    <input #username type="text" placeholder="Enter Username" name="uname" id="uname" [formControlName]="'username'">
     <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
       User name required.
     </div>

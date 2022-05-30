@@ -11,6 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
+  url: any;
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -25,8 +26,22 @@ export class AuthService {
     return this.cookieService.check('access_token');
   }
 
-  productsList(): Observable<any> {
-    return this.http.get('https://fakestoreapi.com/products', { responseType: 'json' });
+  productsList(limit: any, sort: any): Observable<any> {
+    this.url = 'https://fakestoreapi.com/products?limit='+limit+'&sort='+sort;
+    return this.http.get(this.url, { responseType: 'json' });
+  }
+
+  productsListByCategory(category: string, limit: any, sort: any): Observable<any> {
+    this.url = 'https://fakestoreapi.com/products/category/'+category+'?limit='+limit+'&sort='+sort;
+    return this.http.get(this.url, { responseType: 'json' });
+  }
+
+  DisplayCart(): Observable<any> {
+    return this.http.get('https://fakestoreapi.com/carts/user/2', { responseType: 'json' });
+  }
+
+  categoriesList(): Observable<any> {
+    return this.http.get('https://fakestoreapi.com/products/categories', { responseType: 'json' });
   }
   
 }

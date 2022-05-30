@@ -1,6 +1,6 @@
 <div>
-    <app-header></app-header>
-    <app-sidebar></app-sidebar>
+    <app-header [header]="headerString"></app-header>
+    <app-sidebar (sidebar)="navOpen()"></app-sidebar>
     <main>
         <h1>{{title}}</h1>
         <router-outlet></router-outlet>

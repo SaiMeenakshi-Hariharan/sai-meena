@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class Layout1Component implements OnInit {
 
   title = environment.title;
+  headerString = "Header";
 
   constructor(private router: Router, private cookieService: CookieService) { }
 
@@ -19,6 +20,10 @@ export class Layout1Component implements OnInit {
 
   logout() {
     this.cookieService.delete('access_token');
+  }
+
+  navOpen(){
+    alert("Opening Sidebar");
   }
 
 }

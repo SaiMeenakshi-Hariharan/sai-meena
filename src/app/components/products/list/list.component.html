@@ -1,5 +1,22 @@
 <h2>Products</h2>
+<div class = "cart">
+    <a [routerLink]="['/layout1/products/cart']">
+        Cart
+    </a>
+</div>
 <div>
+    <label for="limit">Limit By:</label>
+    <select name="limit" id="limit" (change)="onLimit($event)">
+        <option value=""></option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <label for="limit">Sort By:</label>
+    <select name="sort" id="sort" (change)="onSort($event)">
+        <option value=""></option>
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+    </select>
     <ul *ngFor="let product of data">
         <li>id: {{product.id}},<br>
             title: {{product.title}},<br>

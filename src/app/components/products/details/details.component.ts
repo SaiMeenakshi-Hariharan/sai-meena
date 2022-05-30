@@ -19,7 +19,7 @@ export class DetailsComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.id = params.get('id');
       console.log(this.id);
-      this.authService.productsList().subscribe(
+      this.authService.productsList(undefined, undefined).subscribe(
         res => {
           this.productData = res;
           this.product = this.productData.find((p: any) => p.id==this.id);
