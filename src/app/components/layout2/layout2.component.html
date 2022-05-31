@@ -1,5 +1,7 @@
 <div>
-    <app-header></app-header>
+    <button (click)="updateHeader()">Update Header</button><br>
+    <app-header *ngIf="isVisible" [headerString]="header"></app-header><br>
+    <button (click)="switchVisibility()">Show/Hide</button><br>
     <main>
         <router-outlet></router-outlet>
     </main>

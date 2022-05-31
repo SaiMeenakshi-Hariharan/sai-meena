@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Layout2Component implements OnInit {
 
+  header = "Header";
+  isVisible: boolean = true;
+
+  updateHeader() {
+    this.header = "Cool Header";
+  }
+
+  switchVisibility() {
+    this.isVisible = !this.isVisible;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

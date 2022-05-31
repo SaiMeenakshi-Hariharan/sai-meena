@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class Layout1Component implements OnInit {
 
   title = environment.title;
-  headerString = "Header";
+  header = "Header";
 
   constructor(private router: Router, private cookieService: CookieService) { }
 

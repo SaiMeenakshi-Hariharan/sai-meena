@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   }
 
+  @ViewChild('username') userName: ElementRef<HTMLInputElement> = {} as ElementRef;
+
   ngOnInit(): void {
   }
-
-  @ViewChild('username') userName: ElementRef<HTMLInputElement> = {} as ElementRef;
 
   ngAfterViewInit(): void {
     this.userName.nativeElement.focus();
