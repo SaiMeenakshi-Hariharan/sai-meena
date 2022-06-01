@@ -12,6 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit, AfterViewInit {
 
   loginForm: FormGroup;
+  hide = true;
 
   unamePattern = "^[a-z0-9_-]{8,15}$";
   pwdPattern = "^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@$!%*#?&^])[A-Za-z0-9@$!%*#?&^]{8,}$";

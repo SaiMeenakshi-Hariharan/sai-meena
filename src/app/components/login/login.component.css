@@ -1,21 +1,5 @@
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
 h2 {text-align: center;}
-
-form {
-    margin-left:25%;
-    width: 50%;
-    height: 50%;
-}
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
 
 button {
   background-color: #04AA6D;
@@ -24,7 +8,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
 }
 
 button:hover {
@@ -37,7 +21,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 40%;
+  width: 20%;
   border-radius: 50%;
 }
 
@@ -45,6 +29,17 @@ img.avatar {
     padding: 16px;
 }
 
-[disabled]{
+button:disabled{
   cursor: not-allowed;
+}
+
+mat-card {
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: 500px;
+}
+
+.full-width {
+  width: 80%;
 }

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './http-interceptors/auth.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { AuthInterceptor } from './http-interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    
+    BrowserAnimationsModule,
   ],
   providers: [
     CookieService,

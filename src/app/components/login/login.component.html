@@ -1,28 +1,40 @@
-<h2>Login Form</h2>
-
-<form [formGroup]="loginForm" (ngSubmit)="formSubmit()" method="post">
-  <div class="imgcontainer">
-    <img src="assets/images/img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input #username type="text" placeholder="Enter Username" name="uname" id="uname" [formControlName]="'username'">
-    <div *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
-      User name required.
+<mat-card>
+  <mat-card-content>
+    <div>
+      <h2>Login Form</h2>
     </div>
-    <div *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
-      User name not valid.
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="formSubmit()" method="post">
+      <div class="imgcontainer">
+        <img src="assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+      </div>
+      
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Username</mat-label>
+          <input #username type="text" matInput placeholder="Enter Username" name="uname" id="uname" [formControlName]="'username'" required/>
+          <mat-error *ngIf="loginForm.get('username')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+            User name required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('username')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+            User name not valid.
+          </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter Password" name="psw" id="psw" [formControlName]="'password'" required/>
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+            Password required.
+          </mat-error>  
+          <mat-error *ngIf="loginForm.get('password')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
+            Password not valid.
+          </mat-error>
+        </mat-form-field>
+            
+        <button mat-flat-button [disabled] = "loginForm.invalid">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" [formControlName]="'password'">
-    <div *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('username')?.touched" [ngClass] = "'error'">
-      Password required.
-    </div>  
-    <div *ngIf="loginForm.get('password')?.hasError('pattern') && loginForm.get('username')?.touched" [ngClass] = "'error'">
-      Password not valid.
-    </div>
-        
-    <button [disabled] = "loginForm.invalid">Login</button>
-  </div>
